@@ -15,6 +15,8 @@
 
 ## 目录
 
+[查看完整文件结构树与存放指引](docs/repository-map.md)
+
 | 目录 | 内容 | 默认更新方式 |
 | --- | --- | --- |
 | [identity/](identity/README.md) | 身份、职业、标签、目标、原则 | 本人明确指示后通过 PR |
