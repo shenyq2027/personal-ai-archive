@@ -2,8 +2,11 @@
 
 - 检查日期：2026-10-21（Asia/Shanghai）
 - 目标仓库名：personal-ai-archive
-- 仓库地址：尚未创建或验证；等待 GitHub 账号登录后生成真实地址，不填猜测地址。
-- 远端保护：尚未开启或验证。
+- 仓库地址：[shenyq2027/personal-ai-archive](https://github.com/shenyq2027/personal-ai-archive)
+- 可见性：public；默认分支 main；已通过 GitHub API 查询核验。
+- 远端保护：已核验必须 PR、必须通过 archive-validation、与 main 同步、管理员受规则约束、禁止 force push 与删除 main。单人仓库不要求第二位审核者。
+- GitHub Actions：默认只读；已允许恢复工作流创建 PR，只有恢复任务请求必要的写权限。
+- 跨平台读取：匿名 GitHub API 已实际返回 HTTP 200 的原始 Markdown。
 - 历史资料导入：未执行。飞书、ima 未连接；未读取两年 Codex 聊天。
 
 ## 已生成的交付内容
@@ -35,6 +38,6 @@ ChatGPT、Claude、Gemini 需要各平台可用连接器/工具与授权；本�
 - 三个 Python 脚本编译检查通过。
 - `python3 tests/verify.py` 临时独立 Git 仓库测试：完整快照树相等；新增文件被移除、删除文件被恢复；main 保持原提交；非法 SHA 被拒绝；与被忽略的本地私密文件冲突时拒绝恢复而不覆盖。
 - 五目录恢复测试通过；错误标签、断链、模拟令牌与符号链接反例均被校验器拒绝。
-- GitHub 工作流仅完成本地语法核验；未在远端 Actions 实际运行。
+- GitHub 首次校验工作流 [39558270429](https://github.com/shenyq2027/personal-ai-archive/actions/runs/39558270429)：completed / success，包含结构检查与临时 Git 仓库恢复测试。
 
-远端 API、保护设置、CI 状态与跨平台实际读取仍待 GitHub 登录及平台连接后核验。本报告不把尚未完成的远端操作标为成功。
+远端仓库、保护、首次 CI 与匿名 API 读取已核验；恢复工作流的真实 PR 演练正在进行，完成后补充证据。各 AI 平台的实际账号连接和自动任务钩子尚未配置。

@@ -1,5 +1,7 @@
 # AI-READONLY: Personal AI Archive
 
+[公开仓库](https://github.com/shenyq2027/personal-ai-archive)
+
 跨 AI、跨设备的个人记忆源。纯 Markdown、UTF-8、相对链接；GitHub 是唯一事实来源，AI 平台内的记忆是副本。
 
 **公开仓库：禁止上传账号凭据、私人对话原文、公司内部资料、客户/候选人资料和第三方个人信息。** 初始版本只有模板，没有导入过去两年的私人档案。

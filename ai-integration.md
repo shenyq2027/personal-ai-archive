@@ -16,19 +16,19 @@ Markdown 是通用内容格式，GitHub API 是读取/写入接口；这不代�
 
 ## GitHub API 读取（无需令牌）
 
-用实际仓库路径替换 `OWNER/personal-ai-archive`。公开 REST API 有匿名速率限制。
+本仓库实际路径为 `shenyq2027/personal-ai-archive`，以下示例可以直接使用。公开 REST API 有匿名速率限制。
 
 ```sh
 curl --fail --location \
   -H 'Accept: application/vnd.github.raw+json' \
-  'https://api.github.com/repos/OWNER/personal-ai-archive/contents/START-HERE.md?ref=main'
+  'https://api.github.com/repos/shenyq2027/personal-ai-archive/contents/START-HERE.md?ref=main'
 ```
 
-先读取 `GET /repos/OWNER/personal-ai-archive/commits/main` 保存 SHA；再以该 SHA 作为 `ref` 读取入口、AGENTS、身份和偏好，确保同一版本。目录枚举使用 `GET /repos/OWNER/personal-ai-archive/contents/{directory}?ref={sha}`；UTF-8 Markdown 可直接消费，默认 JSON 返回的 `content` 则需按 `encoding` 解码。公开 raw 地址形如 `https://raw.githubusercontent.com/OWNER/personal-ai-archive/main/START-HERE.md`，客户端必须能跟随相对链接，或逐个读取文件。
+先读取 `GET /repos/shenyq2027/personal-ai-archive/commits/main` 保存 SHA；再以该 SHA 作为 `ref` 读取入口、AGENTS、身份和偏好，确保同一版本。目录枚举使用 `GET /repos/shenyq2027/personal-ai-archive/contents/{directory}?ref={sha}`；UTF-8 Markdown 可直接消费，默认 JSON 返回的 `content` 则需按 `encoding` 解码。公开 raw 地址形如 `https://raw.githubusercontent.com/shenyq2027/personal-ai-archive/main/START-HERE.md`，客户端必须能跟随相对链接，或逐个读取文件。
 
 ## 通用启动提示词
 
-> 请通过可用的 GitHub 工具读取 OWNER/personal-ai-archive 的 START-HERE.md、AGENTS.md、identity/profile.md、identity/goals.md、workflow/preferences.md、workflow/priorities.md。将 main 解析成固定 commit SHA 后读取同一版本。占位符与候选记录不是事实。仅加载与任务有关的资料。当前本人指令优先。完成任务后按 ai-integration.md 提出可公开的新记忆更新；有写工具时建 PR，无工具时给出补丁并说明尚未写回。禁止把隐私或内部资料上传到公开仓库。
+> 请通过可用的 GitHub 工具读取 shenyq2027/personal-ai-archive 的 START-HERE.md、AGENTS.md、identity/profile.md、identity/goals.md、workflow/preferences.md、workflow/priorities.md。将 main 解析成固定 commit SHA 后读取同一版本。占位符与候选记录不是事实。仅加载与任务有关的资料。当前本人指令优先。完成任务后按 ai-integration.md 提出可公开的新记忆更新；有写工具时建 PR，无工具时给出补丁并说明尚未写回。禁止把隐私或内部资料上传到公开仓库。
 
 ## 自动更新协议
 
