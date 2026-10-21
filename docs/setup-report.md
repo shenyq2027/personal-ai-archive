@@ -18,11 +18,27 @@
 - 发布脚本创建公开仓库、推送提交、设置并核验 main 分支保护。
 - 手动 Actions 内容恢复 PR 与本地完整历史快照恢复脚本。
 
+## 各目录使用说明
+
+| 目录 | 放什么 | 如何更新 |
+| --- | --- | --- |
+| [identity](../identity/README.md) | 称呼、职业、核心标签、目标、决策原则 | 仅本人明确确认后更新 |
+| [workflow](../workflow/README.md) | 工作习惯、工具、沟通偏好与优先级 | 已确认的新规则通过 PR 更新 |
+| [memory](../memory/README.md) | 新经验、候选偏好、复盘、重要决策 | 新条目先进 inbox，保留日期和来源 |
+| [skills](../skills/README.md) | 技能证据、学习计划、能力缺口 | 以真实成果更新，不自称掌握 |
+| [archive](../archive/README.md) | 完成项目、旧文档、结束任务 | 脱敏摘要归档，保留历史引用 |
+
 ## 快速使用
 
 本人先填写 identity/profile.md、identity/goals.md 与 workflow/preferences.md，并标为 confirmed。AI 启动时先读取 START-HERE.md 与 AGENTS.md，再按任务加载。详细路径、启动提示词与 API 示例见 [接入指南](../ai-integration.md)。新经验先追加 [候选箱](../memory/inbox.md)；通过 PR 校验与审阅再进入 main。
 
-## 发布前置条件
+可直接复制给有 GitHub 读取工具的 AI：
+
+> 请读取 https://api.github.com/repos/shenyq2027/personal-ai-archive/contents/START-HERE.md?ref=main ，使用 Accept: application/vnd.github.raw+json 获取 Markdown。按入口读取 AGENTS.md 和所需身份、工作偏好档案。占位符不是事实，当前本人指令优先。完成任务后，将已确认可公开的新经验按 ai-integration.md 通过 PR 写回；没有写工具时输出补丁并说明尚未写回。
+
+写回不是公开读取附带的权限，必须由该 AI 所在平台具备授权的 Git/GitHub 写工具。另一个设备只需克隆或通过 API 读取此仓库，无需转换格式；不会自动迁移各平台私有记忆库。
+
+## 发布与维护前置条件
 
 需要已登录且具备本人仓库管理权限的 GitHub CLI。执行 `python3 scripts/validate.py` 后，将已审阅文件提交到独立 Git 仓库，再执行 `python3 scripts/publish.py`。若 gh 未在 PATH 中，可用 PERSONAL_ARCHIVE_GH 指定官方 CLI 可执行文件绝对路径。发布脚本报错时可能已有部分远端步骤完成，须查询实际状态；不能据文件存在就判断远端生效。
 
@@ -40,4 +56,9 @@ ChatGPT、Claude、Gemini 需要各平台可用连接器/工具与授权；本�
 - 五目录恢复测试通过；错误标签、断链、模拟令牌与符号链接反例均被校验器拒绝。
 - GitHub 首次校验工作流 [39558270429](https://github.com/shenyq2027/personal-ai-archive/actions/runs/39558270429)：completed / success，包含结构检查与临时 Git 仓库恢复测试。
 
-远端仓库、保护、首次 CI 与匿名 API 读取已核验；恢复工作流的真实 PR 演练正在进行，完成后补充证据。各 AI 平台的实际账号连接和自动任务钩子尚未配置。
+- 真实恢复演练：[Restore archive 39558464054](https://github.com/shenyq2027/personal-ai-archive/actions/runs/39558464054) 成功，从初始提交自动创建 [恢复 PR #2](https://github.com/shenyq2027/personal-ai-archive/pull/2)。
+- 恢复 PR 的 [archive-validation](https://github.com/shenyq2027/personal-ai-archive/actions/runs/39558487886) 通过，GitHub 返回 mergeStateStatus=CLEAN。演练 PR 已关闭且未合并，当前档案保留。
+- GitHub 对 bot 创建的 PR 要求过一次工作流运行批准；批准后检查正常通过。未关闭分支保护或绕过校验。
+- [首次交付 PR #1](https://github.com/shenyq2027/personal-ai-archive/pull/1) 已通过校验并合并；说明正常 PR 更新路径已实际验证。
+
+远端仓库、保护、PR 更新、CI、匿名 API 读取和恢复 PR 创建流程已核验。各 AI 平台的实际账号连接与任务结束自动钩子尚未配置，Meta Muse/OpenAI Dots 接口未核实；飞书/ima/两年历史资料未导入。

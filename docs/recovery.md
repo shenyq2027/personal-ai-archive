@@ -4,6 +4,8 @@
 
 仓库发布且 Actions 可运行后：Actions → Restore archive → Run workflow → 输入历史完整 commit SHA。工作流校验 SHA 属于 main 历史，将 identity、workflow、memory、skills、archive 恢复为该版本，并创建 PR。审阅并通过检查后合并，保留完整回退记录。
 
+GitHub 可能对 bot 创建的 PR 标记 `action_required`，此时由具备权限的维护者批准该工作流运行；不要关闭保护。首次真实演练已验证批准后校验正常通过。
+
 这是“运行一次生成恢复 PR”，不宣称点击后立即覆盖 main。默认分支工作流版本必须存在。发布脚本会尝试允许 Actions 创建 PR；组织若禁止此设置，须由组织管理员处理或使用下面的本地命令。恢复工作流显式触发校验，因为默认 GITHUB_TOKEN 创建的 PR 通常不会自动触发 pull_request 检查。
 
 ## 任意完整历史快照恢复（本地）
